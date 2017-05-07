@@ -16,7 +16,7 @@ gem 'sidekiq', '4.1.2' # background jobs
 gem 'simple_form', '3.2.1' # rails forms made easier
 gem 'slim-rails', '3.1.0' # lightweight HTML templating language, replacing ERB or Haml
 gem 'turbolinks', '5.0.0' # makes navigating your web application faster
-gem 'twilio-ruby', '4.11.1' # our bridge to telephony
+gem 'twilio-ruby', '4.13.0' # our bridge to telephony
 gem 'uglifier', '3.0.0' # compressor for JavaScript assets
 
 source 'https://rails-assets.org' do

@@ -21,5 +21,15 @@ module App
       config.log_tags  = [:subdomain, :uuid]
       config.logger    = ActiveSupport::TaggedLogging.new(logger)
     end
+
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      g.controller_specs false
+      g.view_specs false
+      g.helper_specs false
+      g.routing_specs false
+      g.request_specs false
+    end
   end
 end

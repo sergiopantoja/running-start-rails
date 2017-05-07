@@ -16,6 +16,7 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  api_key                :string
+#  name                   :string
 #
 # Indexes
 #
@@ -27,6 +28,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   before_save :ensure_api_key
+
+  def first_name
+    name.split(' ').first
+  end
+
+  def last_name
+    name.split(' ').last
+  end
 
   def ensure_api_key
     if api_key.blank?

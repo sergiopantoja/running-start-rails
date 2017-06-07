@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 ruby '2.4.1'
 gem 'rails', '5.0.2'
 
+# these Gems are first so Carrierwave doesn't load all of the other fog providers
+gem 'fog-aws' # for Carrierwave
+gem 'carrierwave', '1.1.0' # for file uploads
+
 gem 'devise' # authentication
 gem 'omniauth-google-oauth2' # for Google account access
 gem 'pg', '0.20.0' # for Postgres

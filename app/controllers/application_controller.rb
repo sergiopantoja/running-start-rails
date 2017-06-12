@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   protect_from_forgery with: :null_session
   before_action :authenticate_user_from_api_key!
   before_action :authenticate_user!
+  after_action :verify_authorized, except: :index
+  after_action :verify_policy_scoped, only: :index
 
   private
 

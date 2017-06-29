@@ -13,8 +13,8 @@ module App
     # -- all .rb files in that directory are automatically loaded.
 
     host = URI(Rails.application.secrets.host_url)
-    Rails.application.routes.default_url_options[:host] = host.host
-    config.action_mailer.default_url_options = { host: host.host }
+    Rails.application.routes.default_url_options = { host: host.host, port: host.port }
+    config.action_mailer.default_url_options = { host: host.host, port: host.port }
     config.action_cable.allowed_request_origins = [host.to_s]
 
     config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?

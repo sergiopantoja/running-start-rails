@@ -17,6 +17,7 @@
 #  updated_at             :datetime         not null
 #  api_key                :string
 #  name                   :string
+#  admin                  :boolean          default(FALSE), not null
 #
 # Indexes
 #

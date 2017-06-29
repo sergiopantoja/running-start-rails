@@ -1,8 +1,11 @@
 class ApplicationController < ActionController::Base
   include Pundit
+
   protect_from_forgery with: :null_session
+
   before_action :authenticate_user_from_api_key!
   before_action :authenticate_user!
+  before_action :update_last_seen_at, if: :user_signed_in?
   around_action :set_time_zone, if: :current_user
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   after_action :verify_policy_scoped, only: :index, unless: :devise_controller?
@@ -13,6 +16,10 @@ class ApplicationController < ActionController::Base
 
   def set_time_zone(&block)
     Time.use_zone(current_user.time_zone, &block)
+  end
+
+  def update_last_seen_at
+    current_user.update_column(:last_seen_at, Time.current)
   end
 
   def authenticate_user_from_api_key!

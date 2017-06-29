@@ -19,6 +19,7 @@
 #  name                   :string
 #  admin                  :boolean          default(FALSE), not null
 #  time_zone              :string           default("Eastern Time (US & Canada)"), not null
+#  last_seen_at           :datetime
 #
 # Indexes
 #

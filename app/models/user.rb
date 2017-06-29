@@ -27,6 +27,7 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
+  before_validation :normalize
   before_save :ensure_api_key
 
   def first_name
@@ -44,6 +45,11 @@ class User < ApplicationRecord
   end
 
   private
+
+  def normalize
+    self.email = email.downcase if email
+    self.name = name.titleize if name
+  end
 
   def generate_api_key
     loop do

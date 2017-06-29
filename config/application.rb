@@ -12,6 +12,11 @@ module App
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
 
+    host = URI(Rails.application.secrets.host_url)
+    Rails.application.routes.default_url_options[:host] = host.host
+    config.action_mailer.default_url_options = { host: host.host }
+    config.action_cable.allowed_request_origins = [host.to_s]
+
     config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
     config.active_job.queue_adapter = :sidekiq
 

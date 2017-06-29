@@ -18,6 +18,7 @@
 #  api_key                :string
 #  name                   :string
 #  admin                  :boolean          default(FALSE), not null
+#  time_zone              :string           default("Eastern Time (US & Canada)"), not null
 #
 # Indexes
 #

@@ -49,5 +49,17 @@ class ApplicationPolicy
     def resolve
       scope
     end
+
+    private
+
+    def logged_in?
+      !user.nil?
+    end
+  end
+
+  private
+
+  def logged_in?
+    !user.nil?
   end
 end

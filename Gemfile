@@ -9,6 +9,7 @@ gem 'carrierwave', '1.1.0' # for file uploads
 
 gem 'devise' # authentication
 gem 'omniauth-google-oauth2' # for Google account access
+gem 'paper_trail', '7.0.3' # auditing and versioning
 gem 'pg', '0.20.0' # for Postgres
 gem 'pg_search', '2.0.1' # full-text search for Postgres
 gem 'puma', '3.4.0' # web server

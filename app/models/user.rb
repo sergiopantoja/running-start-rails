@@ -28,6 +28,8 @@
 #
 
 class User < ApplicationRecord
+  has_paper_trail
+
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable, :timeoutable
 
   before_validation :normalize

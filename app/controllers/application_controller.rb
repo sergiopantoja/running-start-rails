@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user_from_api_key!
   before_action :authenticate_user!
   before_action :update_last_seen_at, if: :user_signed_in?
+  before_action :set_paper_trail_whodunnit
   around_action :set_time_zone, if: :current_user
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   after_action :verify_policy_scoped, only: :index, unless: :devise_controller?

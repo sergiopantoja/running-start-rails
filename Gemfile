@@ -17,7 +17,7 @@ gem 'rack-cors' # for CORS support
 gem 'rack-timeout', '0.4.2' # end requests that take too long
 gem 'redis', '3.3.3' # for Action Cable and Sidekiq
 gem 'sass-rails', '5.0.6' # for SCSS files
-gem 'sidekiq', '4.1.2' # background jobs
+gem 'sidekiq', '5.0.3' # background jobs
 gem 'simple_form', '3.2.1' # rails forms made easier
 gem 'slim-rails', '3.1.0' # lightweight HTML templating language, replacing ERB or Haml
 gem 'turbolinks', '5.0.0' # makes navigating your web application faster

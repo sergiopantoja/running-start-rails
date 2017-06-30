@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
 
   devise_for :users
@@ -9,6 +11,12 @@ Rails.application.routes.draw do
 
     unauthenticated do
       root "devise/sessions#new", as: :unauthenticated_root
+    end
+  end
+
+  authenticate :user, lambda { |u| u.admin? } do
+    scope '/admin' do
+      mount Sidekiq::Web => '/sidekiq'
     end
   end
 
